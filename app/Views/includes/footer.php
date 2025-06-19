@@ -32,7 +32,7 @@
 <script type="text/javascript">
 if (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
     if (!wcs_add) var wcs_add = {};
-    wcs_add["wa"] = "12d294cc6ae2890";
+    wcs_add["wa"] = "126baf627e0a660";
     if (window.wcs) {
         wcs_do();
     }

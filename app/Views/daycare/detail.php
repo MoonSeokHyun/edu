@@ -84,7 +84,15 @@
     <a href="<?= site_url('daycare') ?>">어린이집 목록</a> &gt;
     상세정보
   </div>
-
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6686738239613464"
+     data-ad-slot="1204098626"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   <!-- 기본정보 -->
   <div class="section">
     <h2>기본정보</h2>
@@ -118,7 +126,15 @@
       </li>
     </ul>
   </div>
-
+  <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6686738239613464"
+     data-ad-slot="1204098626"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   <!-- 시설정보 -->
   <div class="section">
     <h2>시설정보</h2>
@@ -161,7 +177,15 @@
       </div>
     </div>
   <?php endif; ?>
-
+  <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6686738239613464"
+     data-ad-slot="1204098626"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   <!-- 이미지 검색 -->
   <?php if (!empty($images['items'])): ?>
     <div class="section">
