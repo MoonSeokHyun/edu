@@ -60,7 +60,7 @@ class SitemapController extends Controller
 
         foreach ($items as $item) {
             // URL 생성 예: daycare/detail/{id} (상세 페이지 URL 맞춰서 변경 가능)
-            $url = base_url("daycare/detail/{$item['id']}");
+            $url = base_url("daycare/{$item['id']}");
 
             // lastmod는 License_Date 있으면 사용, 없으면 오늘 날짜
             $lastmod = !empty($item['License_Date']) 
