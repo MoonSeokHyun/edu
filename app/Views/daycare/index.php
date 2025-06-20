@@ -112,7 +112,15 @@
 <?php include APPPATH . 'Views/includes/header.php'; ?>
 
 <h1 class="page-title">어린이집 목록</h1>
-
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6686738239613464"
+     data-ad-slot="1204098626"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <div class="card-container">
     <?php foreach ($daycares as $daycare): ?>
         <div class="card" onclick="window.location.href='<?= site_url('daycare/' . esc($daycare['id'])) ?>'">

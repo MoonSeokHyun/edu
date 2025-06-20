@@ -1,5 +1,13 @@
 <?php include APPPATH . 'Views/includes/header.php'; ?>
-
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6686738239613464"
+     data-ad-slot="1204098626"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <!-- Hero Section -->
 <section style="background:#00b15d; color:#fff; padding:80px 20px; text-align:center;">
   <h1 style="font-size:32px; font-weight:700; margin-bottom:20px;">교육기관 정보는 에듀허브에서</h1>
