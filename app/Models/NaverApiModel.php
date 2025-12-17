@@ -122,22 +122,33 @@ class NaverApiModel extends Model
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($ch);
-
-        if (curl_errno($ch)) {
-            
-        } else {
-            $data = json_decode($response, true);
-        }
-
-        $result['x'] = $data['addresses'][0]['x'];
-        $result['y'] = $data['addresses'][0]['y'];
-
-        $result['roadAddress'] = $data['addresses'][0]['roadAddress'];
-        $result['jibunAddress'] = $data['addresses'][0]['jibunAddress'];
-
+        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         // cURL 종료
         curl_close($ch);
+
+        if (curl_errno($ch) || $statusCode !== 200) {
+            $result['x'] = 0;
+            $result['y'] = 0;
+            $result['roadAddress'] = $address;
+            $result['jibunAddress'] = $address;
+            return $result;
+        }
+
+        $data = json_decode($response, true);
+
+        if (empty($data['addresses']) || !is_array($data['addresses']) || count($data['addresses']) === 0) {
+            $result['x'] = 0;
+            $result['y'] = 0;
+            $result['roadAddress'] = $address;
+            $result['jibunAddress'] = $address;
+            return $result;
+        }
+
+        $result['x'] = $data['addresses'][0]['x'] ?? 0;
+        $result['y'] = $data['addresses'][0]['y'] ?? 0;
+        $result['roadAddress'] = $data['addresses'][0]['roadAddress'] ?? $address;
+        $result['jibunAddress'] = $data['addresses'][0]['jibunAddress'] ?? $address;
 
         return $result;
     }

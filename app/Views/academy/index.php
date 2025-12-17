@@ -1,6 +1,6 @@
 <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Noto Sans KR', Arial, sans-serif;
         background-color: #f1f1f1;
         margin: 0;
         padding: 0;
@@ -44,6 +44,7 @@
     .card h3 {
         margin: 10px 0;
         color: #333;
+        font-size: 1.1rem;
     }
 
     .card p {
@@ -111,7 +112,7 @@
 
 <?php include APPPATH . 'Views/includes/header.php'; ?>
 
-<h1 class="page-title">어린이집 목록</h1>
+<h1 class="page-title">학원 목록</h1>
 
 <!-- 상단 광고 (최적화) -->
 <div class="ad-container above-content">
@@ -127,11 +128,12 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <div class="card-container">
-    <?php foreach ($daycares as $daycare): ?>
-        <div class="card" onclick="window.location.href='<?= site_url('daycare/' . esc($daycare['id'])) ?>'">
-            <h3><?= esc($daycare['Daycare_Name']) ?> 🏫</h3>
-            <p>지역: <?= esc($daycare['City_County_District']) ?> 📍</p>
-            <p>전화: <?= esc($daycare['Daycare_Phone_Number']) ?> 📞</p>
+    <?php foreach ($academies as $academy): ?>
+        <div class="card" onclick="window.location.href='<?= site_url('academy/' . esc($academy['id'], 'url')) ?>'">
+            <h3><?= esc($academy['academy_name']) ?> 📚</h3>
+            <p>지역: <?= esc($academy['administrative_area'] ?? '') ?> 📍</p>
+            <p>유형: <?= esc($academy['academy_type_name'] ?? '') ?></p>
+            <p>전화: <?= esc($academy['phone_number'] ?? '') ?> 📞</p>
         </div>
     <?php endforeach; ?>
 </div>
@@ -144,3 +146,4 @@
 </div>
 
 <?php include APPPATH . 'Views/includes/footer.php'; ?>
+

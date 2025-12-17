@@ -78,10 +78,10 @@
 <?php include APPPATH . 'Views/includes/header.php'; ?>
 
 <div class="container">
-  <h1 class="content-title"><?= esc($daycare['Daycare_Name']) ?> 상세정보</h1>
+  <h1 class="content-title"><?= esc($academy['academy_name']) ?> 상세정보</h1>
   <div class="breadcrumb">
     <a href="<?= site_url() ?>">홈</a> &gt;
-    <a href="<?= site_url('daycare') ?>">어린이집 목록</a> &gt;
+    <a href="<?= site_url('academy') ?>">학원 목록</a> &gt;
     상세정보
   </div>
   
@@ -102,33 +102,30 @@
   <div class="section">
     <h2>기본정보</h2>
     <ul class="detail-list">
-      <li><strong>어린이집명:</strong> <div class="value"><?= esc($daycare['Daycare_Name']) ?></div></li>
-      <li><strong>어린이집 유형:</strong> <div class="value"><?= esc($daycare['Daycare_Type']) ?></div></li>
-      <li><strong>운영현황:</strong> <div class="value"><?= esc($daycare['Operation_Status']) ?></div></li>
-      <li><strong>정원:</strong> <div class="value"><?= esc($daycare['Capacity']) ?>명</div></li>
-      <li><strong>현원:</strong> <div class="value"><?= esc($daycare['Current_Enrollment']) ?>명</div></li>
-      <li><strong>인가일자:</strong> <div class="value"><?= esc($daycare['License_Date']) ?></div></li>
-      <li><strong>휴지 시작일자:</strong> <div class="value"><?= esc($daycare['Suspension_Start_Date']) ?></div></li>
-      <li><strong>휴지 종료일자:</strong> <div class="value"><?= esc($daycare['Suspension_End_Date']) ?></div></li>
-      <li><strong>폐지일자:</strong> <div class="value"><?= esc($daycare['Closure_Date']) ?></div></li>
+      <li><strong>학원명:</strong> <div class="value"><?= esc($academy['academy_name']) ?></div></li>
+      <li><strong>학원 유형:</strong> <div class="value"><?= esc($academy['academy_type_name'] ?? '') ?></div></li>
+      <li><strong>등록 상태:</strong> <div class="value"><?= esc($academy['registration_status'] ?? '') ?></div></li>
+      <li><strong>인가번호:</strong> <div class="value"><?= esc($academy['academy_license_number'] ?? '') ?></div></li>
+      <li><strong>개원일:</strong> <div class="value"><?= esc($academy['open_date'] ?? '') ?></div></li>
+      <li><strong>등록일:</strong> <div class="value"><?= esc($academy['registration_date'] ?? '') ?></div></li>
+      <li><strong>정원:</strong> <div class="value"><?= esc($academy['total_capacity'] ?? '') ?>명</div></li>
+      <li><strong>임시 정원:</strong> <div class="value"><?= esc($academy['temporary_capacity'] ?? '') ?>명</div></li>
+      <li><strong>휴원 시작일:</strong> <div class="value"><?= esc($academy['suspension_start_date'] ?? '') ?></div></li>
+      <li><strong>휴원 종료일:</strong> <div class="value"><?= esc($academy['suspension_end_date'] ?? '') ?></div></li>
     </ul>
   </div>
 
-  <!-- 연락처 -->
+  <!-- 교육 정보 -->
   <div class="section">
-    <h2>연락처</h2>
+    <h2>교육 정보</h2>
     <ul class="detail-list">
-      <li><strong>전화번호:</strong> <div class="value"><?= esc($daycare['Daycare_Phone_Number']) ?></div></li>
-      <li><strong>팩스번호:</strong> <div class="value"><?= esc($daycare['Daycare_Fax_Number']) ?></div></li>
-      <li><strong>홈페이지:</strong>
-        <div class="value">
-          <?php if (!empty($daycare['Website_URL'])): ?>
-            <a href="<?= esc($daycare['Website_URL']) ?>" target="_blank"><?= esc($daycare['Website_URL']) ?></a>
-          <?php else: ?>
-            없음
-          <?php endif; ?>
-        </div>
-      </li>
+      <li><strong>분야명:</strong> <div class="value"><?= esc($academy['field_name'] ?? '') ?></div></li>
+      <li><strong>교습 과목:</strong> <div class="value"><?= esc($academy['teaching_category'] ?? '') ?></div></li>
+      <li><strong>과정 목록:</strong> <div class="value"><?= esc($academy['course_list_name'] ?? '') ?></div></li>
+      <li><strong>과정명:</strong> <div class="value"><?= esc($academy['course_name'] ?? '') ?></div></li>
+      <li><strong>1인당 수강료:</strong> <div class="value"><?= esc($academy['fee_per_person'] ?? '') ?>원</div></li>
+      <li><strong>수강료 공개 여부:</strong> <div class="value"><?= esc($academy['fee_disclosure_yn'] ?? '') ?></div></li>
+      <li><strong>기숙 학원 여부:</strong> <div class="value"><?= esc($academy['boarding_academy_yn'] ?? '') ?></div></li>
     </ul>
   </div>
   
@@ -146,16 +143,11 @@
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
   
-  <!-- 시설정보 -->
+  <!-- 연락처 -->
   <div class="section">
-    <h2>시설정보</h2>
+    <h2>연락처</h2>
     <ul class="detail-list">
-      <li><strong>보육실 수:</strong> <div class="value"><?= esc($daycare['Number_of_Classrooms']) ?></div></li>
-      <li><strong>보육실 면적 (㎡):</strong> <div class="value"><?= esc($daycare['Classroom_Area_sqm']) ?></div></li>
-      <li><strong>놀이터 수:</strong> <div class="value"><?= esc($daycare['Number_of_Playgrounds']) ?></div></li>
-      <li><strong>CCTV 설치 수:</strong> <div class="value"><?= esc($daycare['Number_of_CCTVs_Installed']) ?></div></li>
-      <li><strong>보육교직원 수:</strong> <div class="value"><?= esc($daycare['Number_of_Staff']) ?></div></li>
-      <li><strong>통학차량 운영 여부:</strong> <div class="value"><?= esc($daycare['Shuttle_Bus_Operated']) ?></div></li>
+      <li><strong>전화번호:</strong> <div class="value"><?= esc($academy['phone_number'] ?? '') ?></div></li>
     </ul>
   </div>
 
@@ -163,20 +155,24 @@
   <div class="section">
     <h2>주소 및 위치</h2>
     <ul class="detail-list">
-      <li><strong>시도:</strong> <div class="value"><?= esc($daycare['Province']) ?></div></li>
-      <li><strong>시군구:</strong> <div class="value"><?= esc($daycare['City_County_District']) ?></div></li>
-      <li><strong>우편번호:</strong> <div class="value"><?= esc($daycare['Postal_Code']) ?></div></li>
-      <li><strong>주소:</strong> <div class="value"><?= esc($daycare['Address']) ?></div></li>
-      <?php 
-      $hasValidCoordinates = !empty($daycare['Latitude']) && !empty($daycare['Longitude']) 
-        && floatval($daycare['Latitude']) != 0 && floatval($daycare['Longitude']) != 0;
-      if ($hasValidCoordinates): 
-      ?>
-      <li><strong>위도:</strong> <div class="value"><?= esc($daycare['Latitude']) ?></div></li>
-      <li><strong>경도:</strong> <div class="value"><?= esc($daycare['Longitude']) ?></div></li>
+      <li><strong>행정구역:</strong> <div class="value"><?= esc($academy['administrative_area'] ?? '') ?></div></li>
+      <li><strong>교육청 코드:</strong> <div class="value"><?= esc($academy['edu_office_code'] ?? '') ?></div></li>
+      <li><strong>교육청명:</strong> <div class="value"><?= esc($academy['edu_office_name'] ?? '') ?></div></li>
+      <li><strong>우편번호:</strong> <div class="value"><?= esc($academy['road_postal_code'] ?? '') ?></div></li>
+      <li><strong>도로명 주소:</strong> <div class="value"><?= esc($academy['road_address'] ?? '') ?></div></li>
+      <li><strong>상세 주소:</strong> <div class="value"><?= esc($academy['road_address_detail'] ?? '') ?></div></li>
+      <?php if (!empty($latitude) && !empty($longitude)): ?>
+      <li><strong>위도:</strong> <div class="value"><?= esc($latitude) ?></div></li>
+      <li><strong>경도:</strong> <div class="value"><?= esc($longitude) ?></div></li>
       <?php endif; ?>
     </ul>
+    <?php if (!empty($latitude) && !empty($longitude)): ?>
     <div id="map"></div>
+    <?php else: ?>
+    <div style="padding: 20px; text-align: center; color: #666; background: #f9f9f9; border-radius: 8px; margin-top: 1rem;">
+      지도 정보를 불러올 수 없습니다.
+    </div>
+    <?php endif; ?>
   </div>
   
   <!-- 콘텐츠 사이 광고 2 (최적화) -->
@@ -238,16 +234,10 @@
     </div>
   <?php endif; ?>
 
-  <p class="back-link"><a href="<?= site_url('daycare') ?>">← 목록으로</a></p>
+  <p class="back-link"><a href="<?= site_url('academy') ?>">← 목록으로</a></p>
 </div>
 
-<?php 
-// 위도/경도 확인
-$latitude = !empty($daycare['Latitude']) ? floatval($daycare['Latitude']) : null;
-$longitude = !empty($daycare['Longitude']) ? floatval($daycare['Longitude']) : null;
-?>
-
-<?php if ($latitude !== null && $longitude !== null && $latitude != 0 && $longitude != 0): ?>
+<?php if (!empty($latitude) && !empty($longitude)): ?>
 <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=iyBYir1BVYhy4bW5XWB1wHGfUNyOit2Pz4g413ce"></script>
 <script>
   // 네이버 지도 API 인증 실패 처리
@@ -260,34 +250,22 @@ $longitude = !empty($daycare['Longitude']) ? floatval($daycare['Longitude']) : n
   };
 
   // 네이버 지도 띄우기
-  var latitude = <?= $latitude ?>;
-  var longitude = <?= $longitude ?>;
+  var latitude = <?= floatval($latitude) ?>;
+  var longitude = <?= floatval($longitude) ?>;
 
-  if (latitude && longitude && latitude != 0 && longitude != 0) {
-    try {
-      var map = new naver.maps.Map('map', {
-        center: new naver.maps.LatLng(latitude, longitude),
-        zoom: 15
-      });
+  if (latitude && longitude) {
+    var map = new naver.maps.Map('map', {
+      center: new naver.maps.LatLng(latitude, longitude),
+      zoom: 15
+    });
 
-      var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(latitude, longitude),
-        map: map
-      });
-    } catch (e) {
-      console.error('지도 초기화 실패:', e);
-      var mapElement = document.getElementById('map');
-      if (mapElement) {
-        mapElement.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">지도를 불러올 수 없습니다.</div>';
-      }
-    }
+    var marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(latitude, longitude),
+      map: map
+    });
   }
-</script>
-<?php else: ?>
-<script>
-  // 위도/경도 정보가 없어 지도를 표시할 수 없습니다
-  document.getElementById('map').innerHTML = '<div style="padding: 20px; text-align: center; color: #666; background: #f9f9f9; border-radius: 8px;">위치 정보가 없어 지도를 표시할 수 없습니다.</div>';
 </script>
 <?php endif; ?>
 
 <?php include APPPATH . 'Views/includes/footer.php'; ?>
+

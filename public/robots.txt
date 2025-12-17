@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: 
+Allow: /
+
+# 사이트맵
+Sitemap: https://edu.easehub.co.kr/sitemap
