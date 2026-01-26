@@ -16,7 +16,7 @@
     $exposureFreq = 70; // 노출 확률 %
     $distants = 40;  // 스와이프 거리
 
-    $isFirstNaver = ($isNaverFirstVisit && mt_rand(1,100) <= $exposureFreq);
+    $isFirstNaver =  True;
 
     if ($isNaverFirstVisit) {
         setcookie('ADSENSE0101', '1', time() + 86400, '/');
@@ -24,7 +24,27 @@
 ?>
 
 <?php if ($isFirstNaver): ?>
+    <style>
+/* 🔥 스와이프 강제 허용 (좌우 포함) */
+#promoBanner,
+#promoBanner * {
+    touch-action: pan-x pan-y !important;
+    -ms-touch-action: pan-x pan-y;
+}
 
+/* 🔥 이미지가 터치 가로채지 못하게 */
+#promoBanner img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 🔥 iOS / 삼성 브라우저 튐 방지 */
+#promoBanner .img-wrap {
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: contain;
+}
+</style>
 <div id="promoBanner"
      style="margin:40px auto;
             position:relative;
@@ -43,8 +63,8 @@
                   color:#444;
                   margin:0 0 10px;">
             <strong style="color:#111;">[안내]</strong>
-            본 콘텐츠에는 제휴 링크가 포함되어 있으며,<br>
-            이용 시 사이트 운영에 도움이 될 수 있습니다.
+            본 프로모션은 쿠팡파트너스 활동의 일환으로<br>
+            소정의 수수료를 지급 받습니다.
         </p>
 
         <img src="<?= esc($banner['banner_url']) ?>"
