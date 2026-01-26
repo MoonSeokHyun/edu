@@ -114,6 +114,7 @@
       <li><strong>휴원 종료일:</strong> <div class="value"><?= esc($academy['suspension_end_date'] ?? '') ?></div></li>
     </ul>
   </div>
+  <?php include(APPPATH . 'Views/common/coupang.php'); ?>
 
   <!-- 교육 정보 -->
   <div class="section">

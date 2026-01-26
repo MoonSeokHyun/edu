@@ -113,7 +113,7 @@
       <li><strong>폐지일자:</strong> <div class="value"><?= esc($daycare['Closure_Date']) ?></div></li>
     </ul>
   </div>
-
+  <?php include(APPPATH . 'Views/common/coupang.php'); ?>
   <!-- 연락처 -->
   <div class="section">
     <h2>연락처</h2>
