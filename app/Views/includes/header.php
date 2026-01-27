@@ -250,6 +250,11 @@ $seoKeywords = $seoKeywords ?? '에듀허브';
   
   <!-- 애드센스 스크립트 (한 번만 로드) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+  console.log('[jquery check]', 'jQuery:', typeof jQuery, '$:', typeof $, 'ver:', (window.jQuery && jQuery.fn && jQuery.fn.jquery));
+</script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -412,6 +417,7 @@ $seoKeywords = $seoKeywords ?? '에듀허브';
       border-radius: 4px;
     }
   </style>
+
 </head>
 <body>
 
